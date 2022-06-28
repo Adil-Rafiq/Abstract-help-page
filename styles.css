@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@400;500;600;700;800&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 
 *{
     margin: 0;
@@ -259,4 +259,43 @@ button{
     padding: 1.5em 1.2em;
     border-radius: 3.5px;
     border: 1.5px solid #000000;
+}
+
+
+
+/* ------------------------ content ------------------------ */
+main{
+    /* background-color: #FAF7FF; */
+    background-color: #fff;
+}
+.content{
+    margin: 5rem 1rem;
+    font-family: 'Poppins', sans-serif;
+}
+.content .icon img{
+    width: 20vw;
+    max-width: 80px;
+}
+.content > div{
+    display: flex;
+    gap: 1.5rem;
+    /* max-width: 400px; */
+    max-width: 600px;
+    margin: 0 auto;
+    margin-bottom: 5rem;
+}
+.text div{
+    margin-bottom: 1rem;
+}
+.heading h2{
+    font-weight: 700;
+}
+.paragraph p{
+    font-size: 1.3rem;
+    color: rgb(0, 0, 0, .75);
+}
+.link a{
+    font-size: 1.2rem;
+    color: #4C5FD5;
+    text-decoration: none;
 }
