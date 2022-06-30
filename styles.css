@@ -98,7 +98,9 @@ button{
     display: none;
 }
 
-
+input:focus{
+    outline: none;
+}
 
 
 
@@ -178,6 +180,32 @@ button{
     }
     i:hover{
         transform: scale(120%);
+    }
+
+
+    /* nav-links animation */
+    .nav-links li, .nav-links .divider{
+        opacity: 0;
+    }
+}
+@keyframes navLinkFade {
+    from{
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+@keyframes dividerFade {
+    from{
+        opacity: 0;
+        transform: scale(0);
+    }
+    to{
+        opacity: 1;
+        transform: scale(1);
     }
 }
 
@@ -295,7 +323,114 @@ main{
     color: rgb(0, 0, 0, .75);
 }
 .link a{
+    position: relative;
     font-size: 1.2rem;
     color: #4C5FD5;
     text-decoration: none;
+}
+.link a::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    transform: scale(0);
+    transform-origin: left;
+    background-color: #4C5FD5;
+    transition: transform 0.2s ease-in-out;
+}
+.link a:hover::before{
+    transform: scale(1);
+}
+.link a:hover{
+    color: rgb(76, 95, 213, .8);
+}
+
+
+/* --------------------- content medias ----------------- */
+@media screen and (min-width: 768px) {
+    .content{
+        display: grid;
+        grid-template-columns: repeat(2,35vw);
+        gap: 3rem;
+        place-self: center;
+        width: fit-content;
+        margin: 11rem auto 0 auto;
+    }
+    .content > div{
+        max-width: 400px;
+    }
+}
+
+
+/* --------------------- HELP button ----------------- */
+.help-btn{
+    position: fixed;
+    right: 1.5rem;
+    bottom: 1rem;
+    width: fit-content;
+}
+.help-btn button{
+    background-color: #4C5FD5;
+    padding: .8rem 1.5rem;
+    border-radius: 40px;
+    display: flex;
+    gap: .5rem;
+    font-weight: 600;
+}
+
+/* ---------------------------------------------------- */
+
+
+
+
+
+/* ---------------------- Footer ---------------------- */
+footer{
+    color: #fff;
+    background-color: #000;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 5vw;
+    padding: 4rem 1rem;
+}
+
+footer .heading h2{
+    font-family: 'Poppins';
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+footer .last-child p{
+    font-size: .5rem;
+}
+footer p:not(.last-child p){
+    cursor: pointer;
+}
+footer p:hover:not(.last-child p){
+    color: rgb(255, 255, 255, .7);
+}
+
+@media screen and (min-width: 600px) {
+    footer{
+        padding: 4rem 5rem;
+    }
+}
+@media screen and (min-width: 900px) {
+    footer{
+        /* grid-template-columns: repeat(4,1fr); */
+        display: flex;
+        gap: 2vw;
+    }
+    footer section:nth-child(3) p{
+        padding-bottom: .6rem;
+    }
+    footer section:nth-child(5){
+        transform: translate(-100%, 150%);
+        max-height: 100px;
+    }
+    footer section:nth-child(6){
+        transform: translateX(-50%);
+        max-height: 100px;
+    }
 }
