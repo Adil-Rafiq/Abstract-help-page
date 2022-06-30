@@ -35,3 +35,28 @@ crossIcon.addEventListener('click', function(){
     cross.classList.remove('cross-active');
     searchInput.classList.remove('searchInput-active');
 })
+
+
+
+// navLinks Animation
+const navLinks = document.querySelectorAll('.nav-links li');
+const divider = document.querySelector('.nav-links .divider');
+
+burger.addEventListener('click', function(){
+    navLinks.forEach(function(link, index){
+        if (link.style.animation){
+            link.style.animation = ''; // this is to reset the animation
+        }
+        else{
+            link.style.animation = `navLinkFade 0.5s ease forwards ${index/2 + .5}s`;
+        }
+    })
+
+    // animate the divider
+    if (divider.style.animation){
+        divider.style.animation = '';
+    }
+    else{
+        divider.style.animation = `dividerFade 1.8s ease forwards 1.2s`;
+    }
+})
