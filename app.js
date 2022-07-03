@@ -48,7 +48,7 @@ burger.addEventListener('click', function(){
             link.style.animation = ''; // this is to reset the animation
         }
         else{
-            link.style.animation = `navLinkFade 0.5s ease forwards ${index/2 + .5}s`;
+            link.style.animation = `navLinkFade 0.5s ease forwards ${index/5 + .5}s`;
         }
     })
 
@@ -57,6 +57,59 @@ burger.addEventListener('click', function(){
         divider.style.animation = '';
     }
     else{
-        divider.style.animation = `dividerFade 1.8s ease forwards 1.2s`;
+        divider.style.animation = `dividerFade 1s ease forwards 1s`;
     }
+})
+
+
+//------------------------------------------------------------//
+
+let icons = document.querySelectorAll('.icon');
+let texts = document.querySelectorAll('.text');
+
+
+const iconObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (!entry.isIntersecting){
+            return;
+        }
+        else {
+            entry.target.classList.add('appearIcon');
+            iconObserver.unobserve(entry.target);
+        }
+    })
+}, {
+    threshold: 0,
+    rootMargin: '0px 0px -150px 0px'
+})
+
+icons.forEach(icon => {
+    iconObserver.observe(icon);
+})
+
+
+
+const textObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (!entry.isIntersecting){
+            return;
+        }
+        else {
+            if (entry.target.style.animation) {
+                entry.target.style.animation = '';
+            }
+            else {
+                entry.target.style.animation = `animateText 0.5s ease forwards .3s`;
+            }
+
+            textObserver.unobserve(entry.target);
+        }
+    })
+}, {
+    threshold: 0,
+    rootMargin: '0px 0px -150px 0px'
+})
+
+texts.forEach(text => {
+    textObserver.observe(text);
 })
