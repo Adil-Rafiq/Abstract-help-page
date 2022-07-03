@@ -348,6 +348,32 @@ main{
 }
 
 
+
+/* --------------------- content fade in ----------------- */
+.content .icon {
+    opacity: 0;
+    transform: translateX(-100%);
+    
+    transition: opacity 250ms ease-in, transform 400ms ease-in;
+}
+
+.content .appearIcon{
+    opacity: 1;
+    transform: translateX(0%);
+}
+
+.content .text {
+    opacity: 0;
+}
+@keyframes animateText {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 /* --------------------- content medias ----------------- */
 @media screen and (min-width: 768px) {
     .content{
